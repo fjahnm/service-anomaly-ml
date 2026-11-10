@@ -1,0 +1,1553 @@
+{
+  "protocol": "experimental_NAB_AWS_per_series_unsupervised_v0.2.1",
+  "generated_at_utc": "2026-11-10T05:44:20.858485+00:00",
+  "provenance": {
+    "nab_ref": "master",
+    "labels_sha256": "1e1fbc4601321aad8d0f8b3784c8134299379f68f6c1f7777565f8ffd57ab6b1",
+    "source": "https://github.com/numenta/NAB"
+  },
+  "configuration": {
+    "family": "realAWSCloudwatch/",
+    "selected_series": 17,
+    "is_full_aws_set": true,
+    "train_fraction": 0.5,
+    "validation_fraction": 0.15,
+    "test_fraction": 0.35,
+    "threshold_train_quantile": 0.98,
+    "trees": 200,
+    "seed": 42,
+    "features": [
+      "value",
+      "delta_1",
+      "abs_delta_1",
+      "past_mean_12",
+      "past_std_12",
+      "past_median_12",
+      "abs_deviation_past_median"
+    ],
+    "python_version": "3.13.7",
+    "sklearn_version": "1.9.1"
+  },
+  "data_quality": {
+    "series_normalized": 2,
+    "raw_rows": 67740,
+    "canonical_rows": 67718,
+    "out_of_order_transitions": 0,
+    "duplicate_timestamp_rows_merged": 22,
+    "conflicting_duplicate_value_groups": 1,
+    "normalization_policy": "stable sort then median per identical timestamp; no raw overwrite"
+  },
+  "aggregate": {
+    "isolation_forest": {
+      "series_count": 17,
+      "series_with_test_windows": 11,
+      "series_without_test_windows": 6,
+      "test_windows": 13,
+      "detected_test_windows": 11,
+      "micro_event_recall": 0.846154,
+      "macro_event_recall": 0.818182,
+      "off_window_alert_points": 3065,
+      "off_window_alert_episodes": 254,
+      "off_window_exposure_points": 21255,
+      "off_window_alert_points_per_1000_observations": 144.2014,
+      "test_alert_points": 3650,
+      "test_observations": 23632
+    },
+    "rolling_median_baseline": {
+      "series_count": 17,
+      "series_with_test_windows": 11,
+      "series_without_test_windows": 6,
+      "test_windows": 13,
+      "detected_test_windows": 11,
+      "micro_event_recall": 0.846154,
+      "macro_event_recall": 0.818182,
+      "off_window_alert_points": 718,
+      "off_window_alert_episodes": 586,
+      "off_window_exposure_points": 21255,
+      "off_window_alert_points_per_1000_observations": 33.7803,
+      "test_alert_points": 862,
+      "test_observations": 23632
+    }
+  },
+  "series": [
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv",
+      "dataset_sha256": "ab446fbd8b9f37507eb2fdb06315826d8daeef02e241133ce06e0ee571ba53d9",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-02-14 15:30:00",
+      "train_end": "2014-02-21 14:55:00",
+      "validation_start": "2014-02-21 15:00:00",
+      "validation_end": "2014-02-23 17:10:00",
+      "test_start": "2014-02-23 17:15:00",
+      "test_end": "2014-02-28 14:25:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 0,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 2,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6492057454580905,
+        "rolling_median_deviation": 0.068
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 16,
+          "false_alert_episodes_outside_windows": 6,
+          "total_alert_points": 16,
+          "total_test_points": 603,
+          "test_alert_rate": 0.026534,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 6,
+          "false_alert_episodes_outside_windows": 6,
+          "total_alert_points": 6,
+          "total_test_points": 603,
+          "test_alert_rate": 0.00995,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 2,
+        "off_window_observations": 1005,
+        "isolation_forest": {
+          "windows_evaluated": 2,
+          "windows_detected": 2,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 36,
+          "false_alert_episodes_outside_windows": 15,
+          "total_alert_points": 59,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.041933,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 2,
+          "windows_detected": 2,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 11,
+          "false_alert_episodes_outside_windows": 11,
+          "total_alert_points": 23,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.016347,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_53ea38.csv",
+      "dataset_sha256": "8942e498de7b40f1b4a6d802755592c09b8fb73ce8f658763a09cb9ea1ea94ac",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-02-14 15:30:00",
+      "train_end": "2014-02-21 14:55:00",
+      "validation_start": "2014-02-21 15:00:00",
+      "validation_end": "2014-02-23 17:10:00",
+      "test_start": "2014-02-23 17:15:00",
+      "test_end": "2014-02-28 14:25:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 1,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 1,
+      "thresholds": {
+        "isolation_forest_score": 0.6323652121322163,
+        "rolling_median_deviation": 0.2600000000000002
+      },
+      "validation": {
+        "windows_in_partition": 1,
+        "off_window_observations": 537,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 0,
+          "event_recall": 0.0,
+          "false_alert_points_outside_windows": 6,
+          "false_alert_episodes_outside_windows": 4,
+          "total_alert_points": 6,
+          "total_test_points": 603,
+          "test_alert_rate": 0.00995,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 11,
+          "false_alert_episodes_outside_windows": 11,
+          "total_alert_points": 12,
+          "total_test_points": 603,
+          "test_alert_rate": 0.0199,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1272,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 10,
+          "false_alert_episodes_outside_windows": 5,
+          "total_alert_points": 41,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.02914,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 23,
+          "false_alert_episodes_outside_windows": 23,
+          "total_alert_points": 29,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.020611,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_5f5533.csv",
+      "dataset_sha256": "01613e6f632d067f11a5dfd40a188b0789752b388d9bc77a398bd06333878a76",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-02-14 15:27:00",
+      "train_end": "2014-02-21 14:52:00",
+      "validation_start": "2014-02-21 14:57:00",
+      "validation_end": "2014-02-23 17:07:00",
+      "test_start": "2014-02-23 17:12:00",
+      "test_end": "2014-02-28 14:22:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.5750492821770067,
+        "rolling_median_deviation": 7.773579999999999
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 8,
+          "false_alert_episodes_outside_windows": 7,
+          "total_alert_points": 8,
+          "total_test_points": 603,
+          "test_alert_rate": 0.013267,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 3,
+          "false_alert_episodes_outside_windows": 3,
+          "total_alert_points": 3,
+          "total_test_points": 603,
+          "test_alert_rate": 0.004975,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1206,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 1003,
+          "false_alert_episodes_outside_windows": 3,
+          "total_alert_points": 1090,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.774698,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 1,
+          "false_alert_episodes_outside_windows": 1,
+          "total_alert_points": 5,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.003554,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_77c1ca.csv",
+      "dataset_sha256": "90ceabd570b449241ee24ff8a116a793979b7671ce4490707311bfea0e0aae1f",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-02 15:25:00",
+      "train_end": "2014-04-09 14:50:00",
+      "validation_start": "2014-04-09 14:55:00",
+      "validation_end": "2014-04-11 17:05:00",
+      "test_start": "2014-04-11 17:10:00",
+      "test_end": "2014-04-16 14:20:00",
+      "total_labeled_windows": 1,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 1,
+      "windows_intersect_test": 0,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6840857902166668,
+        "rolling_median_deviation": 91.62175999999998
+      },
+      "validation": {
+        "windows_in_partition": 1,
+        "off_window_observations": 457,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 39,
+          "false_alert_episodes_outside_windows": 23,
+          "total_alert_points": 48,
+          "total_test_points": 603,
+          "test_alert_rate": 0.079602,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 29,
+          "false_alert_episodes_outside_windows": 21,
+          "total_alert_points": 33,
+          "total_test_points": 603,
+          "test_alert_rate": 0.054726,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 0,
+        "off_window_observations": 1407,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 46,
+          "false_alert_episodes_outside_windows": 20,
+          "total_alert_points": 46,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.032694,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 46,
+          "false_alert_episodes_outside_windows": 31,
+          "total_alert_points": 46,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.032694,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_825cc2.csv",
+      "dataset_sha256": "d768419037c9db269343822957314f57ee21a7d9a4d41df2add0d1ba45ba84de",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-10 01:04:00",
+      "train_end": "2014-04-17 00:39:00",
+      "validation_start": "2014-04-17 00:44:00",
+      "validation_end": "2014-04-19 02:54:00",
+      "test_start": "2014-04-19 02:59:00",
+      "test_end": "2014-04-24 00:09:00",
+      "total_labeled_windows": 1,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 0,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6793679093655717,
+        "rolling_median_deviation": 6.545280000000005
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 603,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 9,
+          "false_alert_episodes_outside_windows": 9,
+          "total_alert_points": 9,
+          "total_test_points": 603,
+          "test_alert_rate": 0.014925,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 0,
+        "off_window_observations": 1407,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 19,
+          "false_alert_episodes_outside_windows": 17,
+          "total_alert_points": 19,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.013504,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_ac20cd.csv",
+      "dataset_sha256": "749a15c2e1a4543c21fee9cbf3338cd8a7ed5f5f8a1308b9b099b06c2c66e66b",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-02 15:29:00",
+      "train_end": "2014-04-09 15:04:00",
+      "validation_start": "2014-04-09 15:09:00",
+      "validation_end": "2014-04-11 17:19:00",
+      "test_start": "2014-04-11 17:24:00",
+      "test_end": "2014-04-16 14:49:00",
+      "total_labeled_windows": 1,
+      "windows_intersect_training": 0,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6156091571962513,
+        "rolling_median_deviation": 5.315099999999998
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 2,
+          "false_alert_episodes_outside_windows": 2,
+          "total_alert_points": 2,
+          "total_test_points": 603,
+          "test_alert_rate": 0.003317,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 17,
+          "false_alert_episodes_outside_windows": 15,
+          "total_alert_points": 17,
+          "total_test_points": 603,
+          "test_alert_rate": 0.028192,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1004,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 2,
+          "false_alert_episodes_outside_windows": 2,
+          "total_alert_points": 17,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.012082,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 7,
+          "false_alert_episodes_outside_windows": 7,
+          "total_alert_points": 19,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.013504,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv",
+      "dataset_sha256": "d936cea74682ed43ac96b778352d7de294c0b0c168f4a7e6817162346cdb28c1",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-02 15:29:00",
+      "train_end": "2014-04-09 14:54:00",
+      "validation_start": "2014-04-09 14:59:00",
+      "validation_end": "2014-04-11 17:09:00",
+      "test_start": "2014-04-11 17:14:00",
+      "test_end": "2014-04-16 14:24:00",
+      "total_labeled_windows": 0,
+      "windows_intersect_training": 0,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 0,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6737616131795474,
+        "rolling_median_deviation": 0.069
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 6,
+          "false_alert_episodes_outside_windows": 4,
+          "total_alert_points": 6,
+          "total_test_points": 603,
+          "test_alert_rate": 0.00995,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 9,
+          "false_alert_episodes_outside_windows": 9,
+          "total_alert_points": 9,
+          "total_test_points": 603,
+          "test_alert_rate": 0.014925,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 0,
+        "off_window_observations": 1407,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 42,
+          "false_alert_episodes_outside_windows": 11,
+          "total_alert_points": 42,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.029851,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 27,
+          "false_alert_episodes_outside_windows": 27,
+          "total_alert_points": 27,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.01919,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_cpu_utilization_fe7f93.csv",
+      "dataset_sha256": "f3433f8171f4dcea86c0c7af9996d0f166f812fa0f4567f1d5cd85d2d2cd69b4",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-02-14 15:27:00",
+      "train_end": "2014-02-21 14:52:00",
+      "validation_start": "2014-02-21 14:57:00",
+      "validation_end": "2014-02-23 17:07:00",
+      "test_start": "2014-02-23 17:12:00",
+      "test_end": "2014-02-28 14:22:00",
+      "total_labeled_windows": 3,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 2,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 1,
+      "thresholds": {
+        "isolation_forest_score": 0.7109859852126741,
+        "rolling_median_deviation": 50.99621999999998
+      },
+      "validation": {
+        "windows_in_partition": 2,
+        "off_window_observations": 378,
+        "isolation_forest": {
+          "windows_evaluated": 2,
+          "windows_detected": 1,
+          "event_recall": 0.5,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 12,
+          "total_test_points": 603,
+          "test_alert_rate": 0.0199,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 2,
+          "windows_detected": 1,
+          "event_recall": 0.5,
+          "false_alert_points_outside_windows": 1,
+          "false_alert_episodes_outside_windows": 1,
+          "total_alert_points": 4,
+          "total_test_points": 603,
+          "test_alert_rate": 0.006633,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1362,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 0,
+          "event_recall": 0.0,
+          "false_alert_points_outside_windows": 10,
+          "false_alert_episodes_outside_windows": 10,
+          "total_alert_points": 10,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.007107,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 0,
+          "event_recall": 0.0,
+          "false_alert_points_outside_windows": 29,
+          "false_alert_episodes_outside_windows": 25,
+          "total_alert_points": 29,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.020611,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_disk_write_bytes_1ef3de.csv",
+      "dataset_sha256": "ce3d6c6a652ed7c31a6dd3727a36e128fcac6fb2381c63267ad0fbc02eccd9df",
+      "raw_rows": 4730,
+      "original_rows": 4719,
+      "data_quality": {
+        "raw_rows": 4730,
+        "canonical_rows": 4719,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 11,
+        "duplicate_timestamp_groups": 1,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": true,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4707,
+      "train_rows": 2353,
+      "validation_rows": 706,
+      "test_rows": 1648,
+      "train_start": "2014-03-01 18:34:00",
+      "train_end": "2014-03-09 23:29:00",
+      "validation_start": "2014-03-09 23:34:00",
+      "validation_end": "2014-03-12 10:19:00",
+      "test_start": "2014-03-12 10:24:00",
+      "test_end": "2014-03-18 03:39:00",
+      "total_labeled_windows": 1,
+      "windows_intersect_training": 0,
+      "windows_intersect_validation": 1,
+      "windows_intersect_test": 0,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.7342360689133749,
+        "rolling_median_deviation": 50337540.0
+      },
+      "validation": {
+        "windows_in_partition": 1,
+        "off_window_observations": 233,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 5,
+          "false_alert_episodes_outside_windows": 2,
+          "total_alert_points": 39,
+          "total_test_points": 706,
+          "test_alert_rate": 0.055241,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 3,
+          "false_alert_episodes_outside_windows": 2,
+          "total_alert_points": 29,
+          "total_test_points": 706,
+          "test_alert_rate": 0.041076,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 0,
+        "off_window_observations": 1648,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 64,
+          "false_alert_episodes_outside_windows": 29,
+          "total_alert_points": 64,
+          "total_test_points": 1648,
+          "test_alert_rate": 0.038835,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 43,
+          "false_alert_episodes_outside_windows": 29,
+          "total_alert_points": 43,
+          "total_test_points": 1648,
+          "test_alert_rate": 0.026092,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_disk_write_bytes_c0d644.csv",
+      "dataset_sha256": "a0e734a66098bb81833835f0839dadafbc8ae829c51494670ee8849e46eb5b63",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-02 15:25:00",
+      "train_end": "2014-04-09 14:50:00",
+      "validation_start": "2014-04-09 14:55:00",
+      "validation_end": "2014-04-11 17:05:00",
+      "test_start": "2014-04-11 17:10:00",
+      "test_end": "2014-04-16 14:20:00",
+      "total_labeled_windows": 3,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 1,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.7143774343114703,
+        "rolling_median_deviation": 286731059.99999994
+      },
+      "validation": {
+        "windows_in_partition": 1,
+        "off_window_observations": 468,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 23,
+          "false_alert_episodes_outside_windows": 12,
+          "total_alert_points": 36,
+          "total_test_points": 603,
+          "test_alert_rate": 0.059701,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 16,
+          "false_alert_episodes_outside_windows": 13,
+          "total_alert_points": 23,
+          "total_test_points": 603,
+          "test_alert_rate": 0.038143,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1272,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 0,
+          "event_recall": 0.0,
+          "false_alert_points_outside_windows": 46,
+          "false_alert_episodes_outside_windows": 16,
+          "total_alert_points": 46,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.032694,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 0,
+          "event_recall": 0.0,
+          "false_alert_points_outside_windows": 30,
+          "false_alert_episodes_outside_windows": 19,
+          "total_alert_points": 30,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.021322,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_network_in_257a54.csv",
+      "dataset_sha256": "39104b08f2e0a673b5137eb7681897fcadf0955fedf565740a6a94edc63a81a4",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-10 01:04:00",
+      "train_end": "2014-04-17 00:39:00",
+      "validation_start": "2014-04-17 00:44:00",
+      "validation_end": "2014-04-19 02:54:00",
+      "test_start": "2014-04-19 02:59:00",
+      "test_end": "2014-04-24 00:09:00",
+      "total_labeled_windows": 1,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 0,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6013514297752224,
+        "rolling_median_deviation": 3005129.38
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 9,
+          "false_alert_episodes_outside_windows": 9,
+          "total_alert_points": 9,
+          "total_test_points": 603,
+          "test_alert_rate": 0.014925,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 603,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 0,
+        "off_window_observations": 1407,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 1,
+          "false_alert_episodes_outside_windows": 1,
+          "total_alert_points": 1,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.000711,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/ec2_network_in_5abac7.csv",
+      "dataset_sha256": "c27ef93f582af63bf42e80d804764cbe64ae987620f3cfab5477d6ebb3c6157e",
+      "raw_rows": 4730,
+      "original_rows": 4719,
+      "data_quality": {
+        "raw_rows": 4730,
+        "canonical_rows": 4719,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 11,
+        "duplicate_timestamp_groups": 1,
+        "conflicting_duplicate_value_groups": 1,
+        "changed": true,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4707,
+      "train_rows": 2353,
+      "validation_rows": 706,
+      "test_rows": 1648,
+      "train_start": "2014-03-01 18:36:00",
+      "train_end": "2014-03-09 23:31:00",
+      "validation_start": "2014-03-09 23:36:00",
+      "validation_end": "2014-03-12 10:21:00",
+      "test_start": "2014-03-12 10:26:00",
+      "test_end": "2014-03-18 03:41:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 0,
+      "windows_intersect_validation": 1,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.7390015951711925,
+        "rolling_median_deviation": 627890.8400000002
+      },
+      "validation": {
+        "windows_in_partition": 1,
+        "off_window_observations": 469,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 2,
+          "false_alert_episodes_outside_windows": 2,
+          "total_alert_points": 18,
+          "total_test_points": 706,
+          "test_alert_rate": 0.025496,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 4,
+          "false_alert_episodes_outside_windows": 4,
+          "total_alert_points": 26,
+          "total_test_points": 706,
+          "test_alert_rate": 0.036827,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1411,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 20,
+          "false_alert_episodes_outside_windows": 20,
+          "total_alert_points": 30,
+          "total_test_points": 1648,
+          "test_alert_rate": 0.018204,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 33,
+          "false_alert_episodes_outside_windows": 33,
+          "total_alert_points": 42,
+          "total_test_points": 1648,
+          "test_alert_rate": 0.025485,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/elb_request_count_8c0756.csv",
+      "dataset_sha256": "74c26574a01ca9fb89dddb5021e2e13c3a93eb25dc640438a9acb1ceb00f1021",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-10 01:04:00",
+      "train_end": "2014-04-17 00:54:00",
+      "validation_start": "2014-04-17 00:59:00",
+      "validation_end": "2014-04-19 03:19:00",
+      "test_start": "2014-04-19 03:24:00",
+      "test_end": "2014-04-24 00:39:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6347509039982344,
+        "rolling_median_deviation": 163.2299999999999
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 3,
+          "false_alert_episodes_outside_windows": 3,
+          "total_alert_points": 3,
+          "total_test_points": 603,
+          "test_alert_rate": 0.004975,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 7,
+          "false_alert_episodes_outside_windows": 7,
+          "total_alert_points": 7,
+          "total_test_points": 603,
+          "test_alert_rate": 0.011609,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1206,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 7,
+          "false_alert_episodes_outside_windows": 7,
+          "total_alert_points": 22,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.015636,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 14,
+          "false_alert_episodes_outside_windows": 14,
+          "total_alert_points": 19,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.013504,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/grok_asg_anomaly.csv",
+      "dataset_sha256": "86a0abe9d58e376858d2fd4f4a438f1997e24c64a09e5af03accd4e1b372ac47",
+      "raw_rows": 4621,
+      "original_rows": 4621,
+      "data_quality": {
+        "raw_rows": 4621,
+        "canonical_rows": 4621,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4609,
+      "train_rows": 2304,
+      "validation_rows": 691,
+      "test_rows": 1614,
+      "train_start": "2014-01-16 01:00:00",
+      "train_end": "2014-01-24 00:55:00",
+      "validation_start": "2014-01-24 01:00:00",
+      "validation_end": "2014-01-26 10:30:00",
+      "test_start": "2014-01-26 10:35:00",
+      "test_end": "2014-02-01 01:00:00",
+      "total_labeled_windows": 3,
+      "windows_intersect_training": 2,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6359885606245507,
+        "rolling_median_deviation": 4.006103000000002
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 691,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 44,
+          "false_alert_episodes_outside_windows": 31,
+          "total_alert_points": 44,
+          "total_test_points": 691,
+          "test_alert_rate": 0.063676,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 66,
+          "false_alert_episodes_outside_windows": 37,
+          "total_alert_points": 66,
+          "total_test_points": 691,
+          "test_alert_rate": 0.095514,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1459,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 170,
+          "false_alert_episodes_outside_windows": 78,
+          "total_alert_points": 209,
+          "total_test_points": 1614,
+          "test_alert_rate": 0.129492,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 105,
+          "false_alert_episodes_outside_windows": 71,
+          "total_alert_points": 128,
+          "total_test_points": 1614,
+          "test_alert_rate": 0.079306,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/iio_us-east-1_i-a2eb1cd9_NetworkIn.csv",
+      "dataset_sha256": "f115fbe6542159eed5612445bfa620708a28ab6b41349d1432bb15c3a3b8414d",
+      "raw_rows": 1243,
+      "original_rows": 1243,
+      "data_quality": {
+        "raw_rows": 1243,
+        "canonical_rows": 1243,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 1231,
+      "train_rows": 615,
+      "validation_rows": 185,
+      "test_rows": 431,
+      "train_start": "2013-10-09 17:25:00",
+      "train_end": "2013-10-11 20:35:00",
+      "validation_start": "2013-10-11 20:40:00",
+      "validation_end": "2013-10-12 12:00:00",
+      "test_start": "2013-10-12 12:05:00",
+      "test_end": "2013-10-13 23:55:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 2,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 0,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6951378582604048,
+        "rolling_median_deviation": 8282179.164000005
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 185,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 185,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 185,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 0,
+        "off_window_observations": 431,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 431,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 0,
+          "false_alert_episodes_outside_windows": 0,
+          "total_alert_points": 0,
+          "total_test_points": 431,
+          "test_alert_rate": 0.0,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/rds_cpu_utilization_cc0c53.csv",
+      "dataset_sha256": "d5df979ef85928769a016cd0f935919d8c2a113926e21e1eb3a5001d688760e2",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-02-14 15:30:00",
+      "train_end": "2014-02-21 14:55:00",
+      "validation_start": "2014-02-21 15:00:00",
+      "validation_end": "2014-02-23 17:10:00",
+      "test_start": "2014-02-23 17:15:00",
+      "test_end": "2014-02-28 14:30:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 0,
+      "windows_intersect_validation": 0,
+      "windows_intersect_test": 2,
+      "windows_crossing_test_boundary": 0,
+      "thresholds": {
+        "isolation_forest_score": 0.6232457636149252,
+        "rolling_median_deviation": 1.0768199999999999
+      },
+      "validation": {
+        "windows_in_partition": 0,
+        "off_window_observations": 603,
+        "isolation_forest": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 7,
+          "false_alert_episodes_outside_windows": 6,
+          "total_alert_points": 7,
+          "total_test_points": 603,
+          "test_alert_rate": 0.011609,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 0,
+          "windows_detected": 0,
+          "event_recall": null,
+          "false_alert_points_outside_windows": 5,
+          "false_alert_episodes_outside_windows": 5,
+          "total_alert_points": 5,
+          "total_test_points": 603,
+          "test_alert_rate": 0.008292,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 2,
+        "off_window_observations": 1005,
+        "isolation_forest": {
+          "windows_evaluated": 2,
+          "windows_detected": 2,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 658,
+          "false_alert_episodes_outside_windows": 10,
+          "total_alert_points": 962,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.683724,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 2,
+          "windows_detected": 2,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 119,
+          "false_alert_episodes_outside_windows": 107,
+          "total_alert_points": 178,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.12651,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    },
+    {
+      "dataset": "realAWSCloudwatch/rds_cpu_utilization_e47b3b.csv",
+      "dataset_sha256": "6b712b922ab3b3404c5a629d64a570c390c99471ee8b9b0ff7665f553fda92c1",
+      "raw_rows": 4032,
+      "original_rows": 4032,
+      "data_quality": {
+        "raw_rows": 4032,
+        "canonical_rows": 4032,
+        "out_of_order_transitions": 0,
+        "duplicate_timestamp_rows_merged": 0,
+        "duplicate_timestamp_groups": 0,
+        "conflicting_duplicate_value_groups": 0,
+        "changed": false,
+        "policy": "stable chronological sort; median of values for identical timestamps"
+      },
+      "feature_rows": 4020,
+      "train_rows": 2010,
+      "validation_rows": 603,
+      "test_rows": 1407,
+      "train_start": "2014-04-10 01:02:00",
+      "train_end": "2014-04-17 00:27:00",
+      "validation_start": "2014-04-17 00:32:00",
+      "validation_end": "2014-04-19 02:42:00",
+      "test_start": "2014-04-19 02:47:00",
+      "test_end": "2014-04-23 23:57:00",
+      "total_labeled_windows": 2,
+      "windows_intersect_training": 1,
+      "windows_intersect_validation": 1,
+      "windows_intersect_test": 1,
+      "windows_crossing_test_boundary": 1,
+      "thresholds": {
+        "isolation_forest_score": 0.6045338203124688,
+        "rolling_median_deviation": 1.216259999999997
+      },
+      "validation": {
+        "windows_in_partition": 1,
+        "off_window_observations": 463,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 32,
+          "false_alert_episodes_outside_windows": 26,
+          "total_alert_points": 77,
+          "total_test_points": 603,
+          "test_alert_rate": 0.127695,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 36,
+          "false_alert_episodes_outside_windows": 33,
+          "total_alert_points": 60,
+          "total_test_points": 603,
+          "test_alert_rate": 0.099502,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      },
+      "test": {
+        "windows_in_partition": 1,
+        "off_window_observations": 1346,
+        "isolation_forest": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 950,
+          "false_alert_episodes_outside_windows": 27,
+          "total_alert_points": 1011,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.71855,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        },
+        "rolling_median_baseline": {
+          "windows_evaluated": 1,
+          "windows_detected": 1,
+          "event_recall": 1.0,
+          "false_alert_points_outside_windows": 211,
+          "false_alert_episodes_outside_windows": 171,
+          "total_alert_points": 225,
+          "total_test_points": 1407,
+          "test_alert_rate": 0.159915,
+          "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+        }
+      }
+    }
+  ]
+}

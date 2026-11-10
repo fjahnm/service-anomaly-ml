@@ -109,3 +109,9 @@ service-anomaly-ml/
 - Ahmad, S. et al. (2017), *Unsupervised real-time anomaly detection for streaming data*, Neurocomputing. DOI: https://doi.org/10.1016/j.neucom.2017.04.070
 
 Para metodologia e riscos de validade, consulte [docs/EXPERIMENT_DESIGN.md](docs/EXPERIMENT_DESIGN.md).
+
+## Avaliacao com multiplas series temporais
+
+Experimento reproduzivel com 17 series AWS CloudWatch do NAB, comparando Isolation Forest e um detector estatistico baseado em mediana movel.
+
+[Consultar resultados](docs/results/multi_series/MULTI_SERIES_REPORT.md)

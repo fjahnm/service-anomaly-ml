@@ -112,3 +112,9 @@ Review `artifacts/experiment.json` for the configuration and results of **your o
 - Produce a model card and publish the validated artifact to Hugging Face, then consider an inference API.
 
 See [Experimental design](docs/EXPERIMENT_DESIGN.md).
+
+## Multi-Series Evaluation
+
+A reproducible evaluation across 17 NAB AWS CloudWatch time series, comparing Isolation Forest and a rolling-median baseline.
+
+[View experimental results](docs/results/multi_series/MULTI_SERIES_REPORT.md)
