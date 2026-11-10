@@ -1,8 +1,0 @@
-numpy<3.0,>=2.0
-pandas<4.0,>=2.0
-scikit-learn<2.0,>=1.6
-matplotlib<4.0,>=3.8
-skops<1.0,>=0.13
-
-[dev]
-pytest<11,>=8

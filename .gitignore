@@ -9,3 +9,4 @@ data/processed/
 artifacts/
 data/labels/
 hf_release/
+*.egg-info/
