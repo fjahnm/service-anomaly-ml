@@ -17,10 +17,10 @@ Este projeto é um experimento **reproduzível de aprendizado de máquina (Machi
 
 ## Executar no PowerShell
 
-Você já criou `C:\Users\ResTIC55\Desktop\service-anomaly-ml`, instalou Python e as bibliotecas e baixou os dois arquivos do NAB. Basta acrescentar o conteúdo do ZIP à raiz dessa pasta (sem apagar `data/`, `.venv/` ou `requirements.txt`).
+Você já criou `C:\Users\Computer\Desktop\service-anomaly-ml`, instalou Python e as bibliotecas e baixou os dois arquivos do NAB. Basta acrescentar o conteúdo do ZIP à raiz dessa pasta (sem apagar `data/`, `.venv/` ou `requirements.txt`).
 
 ```powershell
-cd "C:\Users\ResTIC55\Desktop\service-anomaly-ml"
+cd "C:\Users\Computer\Desktop\service-anomaly-ml"
 .\.venv\Scripts\Activate.ps1
 python -m pip install --no-deps -e .
 python -m pytest -q
