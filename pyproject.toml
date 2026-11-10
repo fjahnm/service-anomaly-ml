@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "service-anomaly-ml"
+version = "0.1.0"
+description = "Reproducible, time-aware anomaly detection using the Numenta Anomaly Benchmark"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2.0,<3.0",
+  "pandas>=2.0,<4.0",
+  "scikit-learn>=1.6,<2.0",
+  "matplotlib>=3.8,<4.0",
+  "skops>=0.13,<1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<11"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

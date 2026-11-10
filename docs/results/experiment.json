@@ -1,0 +1,66 @@
+{
+  "project": "service-anomaly-ml",
+  "dataset": "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv",
+  "dataset_sha256": "ab446fbd8b9f37507eb2fdb06315826d8daeef02e241133ce06e0ee571ba53d9",
+  "labels_sha256": "1e1fbc4601321aad8d0f8b3784c8134299379f68f6c1f7777565f8ffd57ab6b1",
+  "python_version": "3.13.7",
+  "sklearn_version": "1.9.1",
+  "training": {
+    "original_rows": 4032,
+    "feature_rows": 4020,
+    "train_rows": 2814,
+    "test_rows": 1206,
+    "train_start": "2014-02-14 15:30:00",
+    "train_end": "2014-02-24 09:55:00",
+    "test_start": "2014-02-24 10:00:00",
+    "test_end": "2014-02-28 14:25:00",
+    "train_fraction": 0.7,
+    "quantile": 0.98,
+    "seed": 42,
+    "feature_columns": [
+      "value",
+      "delta_1",
+      "abs_delta_1",
+      "past_mean_12",
+      "past_std_12",
+      "past_median_12",
+      "abs_deviation_past_median"
+    ],
+    "method": "Training-only unsupervised threshold calibration; 70/30 chronological split by default"
+  },
+  "thresholds": {
+    "isolation_forest_anomaly_score": 0.6573410868644197,
+    "baseline_abs_deviation": 0.068
+  },
+  "models": {
+    "isolation_forest": {
+      "windows_evaluated": 2,
+      "windows_detected": 2,
+      "event_recall": 1.0,
+      "false_alert_points_outside_windows": 23,
+      "false_alert_episodes_outside_windows": 9,
+      "total_alert_points": 46,
+      "total_test_points": 1206,
+      "test_alert_rate": 0.038143,
+      "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+    },
+    "rolling_median_baseline": {
+      "windows_evaluated": 2,
+      "windows_detected": 2,
+      "event_recall": 1.0,
+      "false_alert_points_outside_windows": 9,
+      "false_alert_episodes_outside_windows": 9,
+      "total_alert_points": 21,
+      "total_test_points": 1206,
+      "test_alert_rate": 0.017413,
+      "note": "Métricas experimentais por janela; não equivalem à pontuação oficial NAB nem a F1 ponto a ponto."
+    }
+  },
+  "caveats": [
+    "These metrics are NOT official NAB scores.",
+    "Windows are event-timing tolerance intervals, not ground truth for every point.",
+    "Two annotated events in a single series are insufficient to claim generalization.",
+    "No labels were used to fit the model or choose thresholds.",
+    "Test labels should not be used for iterative hyperparameter selection."
+  ]
+}
