@@ -115,3 +115,9 @@ Para metodologia e riscos de validade, consulte [docs/EXPERIMENT_DESIGN.md](docs
 Experimento reproduzivel com 17 series AWS CloudWatch do NAB, comparando Isolation Forest e um detector estatistico baseado em mediana movel.
 
 [Consultar resultados](docs/results/multi_series/MULTI_SERIES_REPORT.md)
+
+## Diagnostico exploratorio de Data Drift (v0.3.0)
+
+Analise de mudancas de distribuicao em 17 series temporais do NAB, utilizando PSI e distancia KS.
+
+[Consultar relatorio de drift](docs/results/drift/DRIFT_REPORT.md)

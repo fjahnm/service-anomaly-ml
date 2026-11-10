@@ -118,3 +118,9 @@ See [Experimental design](docs/EXPERIMENT_DESIGN.md).
 A reproducible evaluation across 17 NAB AWS CloudWatch time series, comparing Isolation Forest and a rolling-median baseline.
 
 [View experimental results](docs/results/multi_series/MULTI_SERIES_REPORT.md)
+
+## Exploratory Data Drift Analysis (v0.3.0)
+
+Distribution-shift diagnostics across 17 NAB AWS CloudWatch time series, using PSI and KS distance.
+
+[Read the drift report](docs/results/drift/DRIFT_REPORT.md)
