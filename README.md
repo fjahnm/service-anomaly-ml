@@ -14,7 +14,7 @@ Source: Numenta Anomaly Benchmark, [`realAWSCloudwatch/ec2_cpu_utilization_24ae8
 
 The original series has **4,032 observations**, columns `timestamp` and `value`, and **two annotated windows**. Those counts were inspected during local dataset preparation; the training script independently validates all files. **Raw data is not bundled in this project.** Keep upstream attribution and obey its license before any redistribution.
 
-Suggested citation: Ahmad, S., Lavin, A., Purdy, S., & Agha, Z. (2017). *Unsupervised real-time anomaly detection for streaming data.* Neurocomputing. https://doi.org/10.1016/j.neucom.2017.04.070
+Ahmad, S., Lavin, A., Purdy, S., & Agha, Z. (2017). *Unsupervised real-time anomaly detection for streaming data.* Neurocomputing. https://doi.org/10.1016/j.neucom.2017.04.070
 
 ## Reproducible setup — Windows PowerShell
 
