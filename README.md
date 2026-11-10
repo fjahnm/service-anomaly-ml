@@ -4,8 +4,6 @@
 
 **A reproducible time-series anomaly-detection experiment, built with Python and scikit-learn.**
 
-> Status: experimental baseline. This repository does **not** claim a production-ready detector, a validated causal explanation, an official Numenta Anomaly Benchmark (NAB) score, or generalization across datasets.
-
 ## Research question
 
 Can an unsupervised Isolation Forest flag annotated temporal anomalies in a cloud CPU-utilization series, and how does it compare with a simple historical rolling-median deviation rule at the **same training-calibrated alert budget**?
